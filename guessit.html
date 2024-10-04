@@ -21,7 +21,7 @@
 </p>
 
 <div>
-    <h2>My Desserts</h2>
+    <h2>Favourite Desserts</h2>
     <img id="dessertsImages" src="apple_crisp.jpg" width="200" height="200" onclick="nextImage()">
 </div>
 
@@ -41,7 +41,7 @@
         } else {
             alert("You got it!");
         }
-        document.getElementById('result').innerHTML = Attempts: ${attempts}, Wrong guesses: ${wrong};
+        document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong guesses: ${wrong}`;
     }
     let showing = 1;
     function nextImage() {
@@ -61,6 +61,8 @@
                 break;
         }
     }
+
+</script>
 
 </script>
 
