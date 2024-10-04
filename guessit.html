@@ -7,60 +7,61 @@
 <h2>Getting input</h2>
 
 <form>
-    <label for="mysteryColor">Guess the color </label>
-    <input type="password" id="mysteryColor" min=10 max=50 step=2 value="Red"> <br>
+    <label for="secretColor">Guess the color: </label>
+    <input type="password" id="secretColor" value="Red"><br><br>
 
-    <label for="guess">Enter a guess</label>
-    <input type="text" id="guess" name="guess"> <br>
+    <label for="colorGuess">Enter a guess: </label>
+    <input type="text" id="colorGuess"><br><br>
 
     <input type="button" onclick="processColor()" value="Check the color">
-    <p id="result">attempts: 0, wrong guesses: 0</p>
 </form>
+
+
+<p id="result">
+</p>
+
+<div>
+    <h2>My Desserts</h2>
+    <img id="dessertsImages" src="apple_crisp.jpg" width="200" height="200" onclick="nextImage()">
+</div>
+
 <script>
+
     let attempts = 0;
     let wrong = 0;
 
     function processColor() {
-        const mysteryColor = document.getElementById('mysteryColor').value;
-        const userGuess = document.getElementById('guess').value;
+        const secretColor = document.getElementById('secretColor').value.toLowerCase();
+        const colorGuess = document.getElementById('colorGuess').value.toLowerCase();
 
         attempts++;
-
-        if (userGuess.toLowerCase() !== mysteryColor.toLowerCase()) {
+        if (secretColor !== colorGuess) {
             wrong++;
-            alert('That was not it');
+            alert("That was not it");
         } else {
-            alert('You got it!');
+            alert("You got it!");
         }
-
         document.getElementById('result').innerHTML = Attempts: ${attempts}, Wrong guesses: ${wrong};
     }
-</script>
- <div class="container">
-    <img id="plantImage" src="firstplant.jpg" alt="Plant Image" onclick="nextImage()" width="200px" height="200px">
-</div>
-
-<script>
     let showing = 1;
     function nextImage() {
+        const img = document.getElementById('dessertsImages');
         switch (showing) {
             case 1:
-                document.getElementById('plantImage').src = 'secondplant.jpg';
+                img.src = 'chocolate_cake.jpg';
                 showing = 2;
                 break;
             case 2:
-                document.getElementById('plantImage').src = 'thirdplant.jpg';
+                img.src = 'Honey_Cake.jpg';
                 showing = 3;
                 break;
             case 3:
-                document.getElementById('plantImage').src = 'firstplant.jpg';
-                showing = 1;
-                break;
-            default:
+                img.src = 'apple_crisp.jpg';
                 showing = 1;
                 break;
         }
     }
+
 </script>
 
 </body>
