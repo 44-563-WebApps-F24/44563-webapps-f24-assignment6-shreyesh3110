@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <title>Maths Page</title>
+    <title>Math</title>
     <body>
         <h1>Shreyesh Chennagouni figures out</h1>
         <form>
@@ -29,16 +29,48 @@
          <div id="result"></div>
     
         <script>
-             function powerSum() {
+             function powerSum() 
+             {
                 let first = parseInt(document.getElementById('first-number').value);
                 let second = parseInt(document.getElementById('second-number').value);
                 let sum = 0;
-                for (let i = 0; i < first; i++) {
+                for (let i = 0; i < first; i++) 
+                {
                     sum += second ** i;
                 }
                 document.getElementById('result').innerHTML = `Sum of ${first} powers with base ${second} is ${sum}`;
             }
-            
+            function processRadio() 
+            {
+                let first = parseFloat(document.getElementById('first-number').value);
+                let second = parseFloat(document.getElementById('second-number').value);
+                let selectedRadio = document.querySelector('input[name="calculation"]:checked').value;
+                let result;
+                let operation;
+                switch (selectedRadio) 
+                {
+                    case 'max':
+                        result = Math.max(first, second);
+                        operation = "Max";
+                        break;
+                    case 'min':
+                        result = Math.min(first, second);
+                        operation = "Min";
+                        break;
+                    case 'avg':
+                        result = (first + second) / 2;
+                        operation = "Average";
+                        break;
+                    case 'geo':
+                        result = (first * second) ** 0.5; 
+                        operation = "Geometric";
+                        break;
+                    default:
+                        result = "Invalid selection";
+                        operation = "None";
+                }
+                document.getElementById('result').innerHTML = `Computed ${operation} with values ${first} and ${second} with result ${result}.`;
+            }
         </script>
     </body>
 </html>
