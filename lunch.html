@@ -2,7 +2,7 @@
 <html>
     <title>Lunch</title>
     <body>
-        <h1>Shreyesh Chennagouni oders a lunch</h1>
+        <h1>Shreyesh Chennagouni orders a lunch</h1>
         <form>
             <label for="drink">Drink</label>
             <input type="checkbox" id="drink" value="drink"><br/>
@@ -15,7 +15,15 @@
     
             <button type="button" onclick="startLunch()">Start a Lunch Order</button>
         </form>
-        
+        <form>
+            <label for="property">Enter property:</label>
+            <input type="text" id="property" value="entree"><br/>
+    
+            <label for="value">Set it to:</label>
+            <input type="text" id="value"><br/><br/>
+    
+            <button type="button" onclick="updateLunch()">Update the Lunch</button>
+        </form>
         <div id="lunch-result"></div>
     
         <script>
@@ -28,7 +36,13 @@
                 my_lunch.in = document.getElementById('in').checked;
                 document.getElementById('lunch-result').innerHTML = JSON.stringify(my_lunch, null, 2);
             }
-            
+            function updateLunch() 
+            {
+                let property = document.getElementById('property').value;
+                let value = document.getElementById('value').value;
+                my_lunch[property] = value;
+                document.getElementById('lunch-result').innerHTML = JSON.stringify(my_lunch, null, 2);
+            }
         </script>
     </body>
 </html>
